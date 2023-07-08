@@ -44,7 +44,7 @@ Sustentabilidad:
 - Energía no contaminante
 - El agua
 
-## Opinion
+## Opinión
 
 Me hubiera gustado poder desarrollar un poco mas la parte back end, por ejemplo, lograr que tocando el link "servicios" debajo de la categoría servicios "Portuario" solo me aparezcan los servicios de esa categoría, pero por una cuestion de tiempo y exámenes de la facultad se me complicó experimentar sobre eso.
 
