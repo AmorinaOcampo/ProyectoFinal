@@ -1,6 +1,6 @@
 # Proyecto Final
 
-## Creacion 
+## Creación
 
 Para comenzar la programación de la página web, me base en el código realizado en la última clase del curso, al cual le realice varios cambios hasta lograr lo que es hoy en día mi proyecto.
 
