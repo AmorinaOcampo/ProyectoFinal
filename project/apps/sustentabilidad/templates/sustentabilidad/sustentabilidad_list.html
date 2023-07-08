@@ -1,0 +1,44 @@
+{% extends 'sustentabilidad/list.html' %}
+
+
+{% block title %}
+    Lista de iniciativas sustentables
+{% endblock title %}
+
+{% block search %}
+    <div class="py-lg-4">
+        <form action="{% url 'sustentabilidad:sustentabilidad_list' %}" method="get">
+            <input name="consulta" type="text" placeholder="Buscar...">
+        </form>
+    </div>
+{% endblock search %}
+ 
+{% block table_header %}
+    <tr>
+        <th>Nombre</th>
+        <th>Descripcion</th>     
+        <th></th>
+        <th></th>
+    </tr>
+{% endblock table_header %}
+ 
+{% block table_body %}
+    {% for sustentabilidad in object_list %}
+        <tr>
+            <td>{{ sustentabilidad.nombre}}</td>
+            <td>{{ sustentabilidad.descripcion }}</td>
+            <td>
+                <a href="{% url 'sustentabilidad:sustentabilidad_detail' sustentabilidad.id %}"
+                   class="btn btn-secondary btn-sm">Ver detalle</a>
+            </td>
+            <td>
+                <a href="{% url 'sustentabilidad:sustentabilidad_update' sustentabilidad.id %}"
+                   class="btn btn-primary btn-sm">Actualizar</a>
+            </td>
+            <td>
+                <a href="{% url 'sustentabilidad:sustentabilidad_delete' sustentabilidad.id %}"
+                   class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock table_body %}

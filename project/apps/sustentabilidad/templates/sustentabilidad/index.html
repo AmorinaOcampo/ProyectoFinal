@@ -1,0 +1,29 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+    <section id="app-sust-section" class="page-section mt-5 mb-5">
+    </section>
+    <h1 class="shadow-lg text-center">App Sustentabilidad</h1>
+    <div class="container mt-lg-3">
+        <h3 class="pb-lg-3">
+
+            {% block title %}
+                Sustentabilidad
+            {% endblock title %}
+        </h3>
+
+        {% block content_sustentabilidad %}
+            <div class="d-grid gap-3">
+                {% if user.is_staff %}
+                    <a href="{% url 'sustentabilidad:sustentabilidad_create' %}#app-sust-section" class="btn btn-primary">Crear</a>
+                {% endif %}
+                <a href="{% url 'sustentabilidad:sustentabilidad_list' %}#app-sust-section"
+                   class="btn btn-primary">Listar</a>
+                <br>
+            </div>
+        {% endblock content_sustentabilidad %}
+        <div class="d-grid gap-3">
+            <a href="{% url 'home:index' %}#" class="btn btn-info">Ir a Inicio</a>
+        </div>
+    </div>
+{% endblock content %}

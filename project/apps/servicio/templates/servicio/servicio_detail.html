@@ -1,0 +1,20 @@
+{% extends 'servicio/index.html' %}
+
+{% block title %}
+    Detalle de Servicios
+{% endblock title %}
+
+{% block content_servicio %}
+    <ul>
+        <li>Categoría: {{ object.categoria }}</li>
+        <li>Nombre: {{ object.nombre }}</li>
+        <li>Cantidad: {{ object.cantidad }}</li>
+        <li>Precio: {{ object.precio }}</li>
+        <li>Descripción: {{ object.descripcion }}</li>
+        <li>Fecha de actualización: {{ object.fecha_actualizacion }}</li>
+    </ul>
+
+    {% url 'servicio:index' as url %}
+    {% include 'home/index_back.html' with link=url %}
+
+{% endblock content_servicio %}

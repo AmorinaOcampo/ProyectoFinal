@@ -1,0 +1,29 @@
+{% load static %}
+
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-white" id="mainNav">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link text-dark fw-bold {% if request.path == "/" %} active {% endif %}" aria-current="page" href="{% url 'home:index' %}">Inicio</a></li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link text-dark fw-bold {% if request.path == "/servicio/" %} active {% endif %}"  href="#services">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-bold {% if request.path == "/venta/" %} active {% endif %}" href="{% url 'venta:index' %}#app-venta-section">Venta</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-bold {% if request.path == "/sustentabilidad/" %} active {% endif %}" href="{% url 'sustentabilidad:index' %}#app-sust-section">Sustentabilidad</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-bold" href="#contact">Contactanos</a></li>
+                    <li class="nav-item"><a class="nav-link text-bg-light">{{ user.username }}</a></li>  
+                    <li class="nav-item"><a class="nav-link text-dark fw-bold" href="{% url 'home:logout' %}">Logout</a></li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link text-dark fw-bold" href="#about">Nuestra empresa</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-bold" href="#team">Grupo</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-bold" href="#contact">Contactanos</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-bold" href="{% url 'home:login' %}">Login</a></li>               
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

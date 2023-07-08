@@ -1,0 +1,159 @@
+{% extends 'home/base.html' %}
+
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h3 class="d-flex align-items-center">Bienvenido {{ user.username }}</h3>
+    {% endif %}
+    {% if messages %}{{ messages }}{% endif %}
+    {% if user.is_staff %}
+        <div class="row">
+            <a href="{% url 'admin:index' %}" class="btn btn-outline-dark">Administración</a>
+        </div>
+        <div id="services" class="row">
+            <a href="{% url 'home:register' %}" class="btn btn-outline-dark">Registrar nuevo vendedor</a>
+        </div>    
+    {% endif %}
+    <!-- Services-->
+    <section class="page-section mt-5 mb-5 bg-light" >
+        <div class="container">
+            <div class="text-center" >
+                <h2 class="section-heading text-uppercase mb-3">Categoria de servicios</h2>
+                <h3 class="section-subheading text-muted mb-4">Integrador logístico lider</h3>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'home/img/puerto.jpg' %}" width="250" height="250" alt="Presentación" />
+                    <h4 class="my-3">Portuarios</h4>
+                    <p class="text-muted">La moderna concepción de su Layout y la integración de diversos 
+                        servicios de valor agregado, hacen de esta terminal portuaria una Plataforma única 
+                        de Operaciones Multimodales.</p>
+                    <li class="item"><a class="link text-dark fw-bold" href="{% url 'servicio:index' %}#app-servicio-section">SERVICIOS</a></li>
+                </div>
+                <div class="col-md-4">
+                    <img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'home/img/warehouse.jpg' %}" width="250" height="250" alt="Presentación" />
+                    <h4 class="my-3">Warehouse e Inhouse</h4>
+                    <p class="text-muted">Desarrollamos infraestructura específica para actividades logísticas. 
+                        Hemos creado parques, centros y zonas que comprendan depósitos de última generación.</p>
+                    <li class="item"><a class="link text-dark fw-bold" href="{% url 'servicio:index' %}#app-servicio-section">SERVICIOS</a></li>
+                </div>
+                <div class="col-md-4" >
+                    <img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'home/img/transporte.jpg' %}" width="250" height="" alt="Presentación" />
+                    <h4 class="my-3">Transporte y distribución</h4>
+                    <p class="text-muted">Integramos recursos propios, de nuestros clientes y de terceros para recibir, 
+                        almacenar y entregar materias primas y productos terminados en tiempo y forma, a nivel local y nacional.</p>
+                    <li class="item"><a class="link text-dark fw-bold" href="{% url 'servicio:index' %}#app-servicio-section" id="about" >SERVICIOS</a></li>
+                </div>
+            </div>
+        </div>
+    </section >
+    <!-- About-->
+    <section class="page-section mb-5">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase mb-4" >Nuestra empresa</h2>
+                <h3 class="section-heading text-uppercase">¿Por qué elegirnos?</h3>
+                <h3 class="section-subheading text-muted">A lo largo del tiempo nos hemos convertido 
+                    en aliados estratégicos de nuestros clientes construyendo relaciones basadas 
+                    en la confianza y en el trabajo en equipo.</h3>
+                <h3 class="section-subheading text-muted mb-3"id="team">
+                    Somos un grupo de empresas logísticas, 
+                    flexibles para adaptarnos a cualquier situación, empleando la mejor tecnología 
+                    ante el desafío logístico.</h3>              
+            </div>
+        </div>
+    </section>
+    <!-- Team-->
+    <section class="page-section bg-light mb-5" >
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading mb-3">GRUPO IntLOGIC</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="team-member text-center" >
+                        <img class="mx-auto rounded-circle" src="{% static 'home/img/team/Delog.jpg' %}" width="250" height="250" alt="..." />
+                        <h4 class="mt-3">Delog</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="team-member text-center">
+                        <img class="mx-auto rounded-circle" src="{% static 'home//img/team/DistT.png' %}" width="250" height="250" alt="..." />
+                        <h4 class="mt-3">DistT</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="team-member text-center">
+                        <img class="mx-auto rounded-circle" src="{% static 'home/img/team/Exportu.jpg' %}"  width="250" height="250" alt="..." />
+                        <h4 class="mt-3">Exportu</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact-->
+    <section class="page-section mb-5" id="contact" >
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Contactanos</h2>
+            </div>
+            <!-- * * * * * * * * * * * * * * *-->
+            <!-- * * SB Forms Contact Form * *-->
+            <!-- * * * * * * * * * * * * * * *-->
+            <!-- This form is pre-integrated with SB Forms.-->
+            <!-- To make this form functional, sign up at-->
+            <!-- https://startbootstrap.com/solution/contact-forms-->
+            <!-- to get an API token!-->
+            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                <div class="row align-items-stretch mb-5">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <!-- Name input-->
+                            <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
+                            <div class="invalid-feedback" data-sb-feedback="name:required">Nombre</div>
+                        </div>
+                        <div class="form-group">
+                            <!-- Email address input-->
+                            <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
+                            <div class="invalid-feedback" data-sb-feedback="email:required">Email</div>
+                            <div class="invalid-feedback" data-sb-feedback="email:email">Email no es valido</div>
+                        </div>
+                        <div class="form-group mb-md-0">
+                            <!-- Phone number input-->
+                            <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">Número</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group form-group-textarea mb-md-0">
+                            <!-- Message input-->
+                            <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
+                            <div class="invalid-feedback" data-sb-feedback="message:required">Mensaje</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Submit success message-->
+                <!---->
+                <!-- This is what your users will see when the form-->
+                <!-- has successfully submitted-->
+                <div class="d-none" id="submitSuccessMessage">
+                    <div class="text-center text-white mb-3">
+                        <div class="fw-bolder">Form submission successful!</div>
+                        To activate this form, sign up at
+                        <br />
+                        <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                    </div>
+                </div>
+                <!-- Submit error message-->
+                <!---->
+                <!-- This is what your users will see when there is-->
+                <!-- an error submitting the form-->
+                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                <!-- Submit Button-->
+                <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
+            </form>
+        </div>
+    </section>
+    
+{% endblock content %}

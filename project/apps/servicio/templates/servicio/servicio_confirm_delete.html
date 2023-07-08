@@ -1,0 +1,18 @@
+{% extends 'servicio/index.html' %}
+
+{% block title %}
+    Eliminación de Servicios
+{% endblock title %}
+
+{% block content_servicio %}
+    <p class="fs-5 fst-italic">¿Confirmas eliminar "{{ object }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <div class="d-grid gap-3">
+            <button type="submit" class="btn btn-danger">Confirmar</button>
+
+            {% include 'servicio/index_back.html' %}
+
+        </div>
+    </form>
+{% endblock content_servicio %}

@@ -1,0 +1,28 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+    <section id="app-servicio-section" class="page-section mt-5 mb-5">
+    </section>
+    <h1 class="shadow-lg text-center" href="{% url 'servicio:index' %}">App Servicio </h1>
+    <div class="container mt-lg-3">
+        <h3 class="pb-lg-3">
+
+            {% block title %}
+                Servicios
+            {% endblock title %}
+        </h3>
+        
+        {% block content_servicio %}
+            <div class="d-grid gap-3">
+                {% if user.is_staff %}
+                    <a href="{% url 'servicio:servicio_create' %}#app-servicio-section" class="btn btn-primary">Crear</a>
+                {% endif %}
+                <a href="{% url 'servicio:servicio_list' %}#app-servicio-section" class="btn btn-primary">Listar</a>
+                <br>
+            </div>
+        {% endblock content_servicio %}
+        <div class="d-grid gap-3">
+            <a href="{% url 'home:index' %}#" class="btn btn-info">Ir a Inicio</a>
+        </div>
+    </div>
+{% endblock content %}

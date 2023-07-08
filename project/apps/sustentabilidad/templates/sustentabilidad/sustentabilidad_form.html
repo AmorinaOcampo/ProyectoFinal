@@ -1,0 +1,19 @@
+{% extends 'sustentabilidad/index.html' %}
+
+{% block title %}
+    Sustentabilidad
+{% endblock title %}
+
+{% block content_sustentabilidad %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="d-grid gap-3">
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+    </form>
+    {% url 'sustentabilidad:index' as url %}
+    {% include 'home/index_back.html' with link=url %}
+
+{% endblock content_sustentabilidad %}

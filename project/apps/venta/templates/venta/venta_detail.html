@@ -1,0 +1,19 @@
+{% extends 'venta/index.html' %}
+
+{% block title %}
+    Detalle de Ventas
+{% endblock title %}
+
+{% block content_venta %}
+    <ul>
+        <li>Vendedor: {{ object.vendedor }}</li>
+        <li>Categoria: {{ object.categoria }}</li>
+        <li>Servicio: {{ object.servicio.nombre }}</li>
+        <li>Precio total: {{ object.precio_total }}</li>
+        <li>Fecha de venta: {{ object.fecha_venta }}</li>
+    </ul>
+
+    {% url 'venta:index' as url %}
+    {% include 'home/index_back.html' with link=url %}
+
+{% endblock content_venta %}

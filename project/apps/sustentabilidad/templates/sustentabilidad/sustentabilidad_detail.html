@@ -1,0 +1,16 @@
+{% extends 'sustentabilidad/index.html' %}
+
+{% block title %}
+    Detalle de Sustentabilidad
+{% endblock title %}
+
+{% block content_sustentabilidad %}
+    <ul>
+        <li>Nombre: {{ object.nombre }}</li>
+        <li>Descripcion: {{ object.descripcion }}</li>
+    </ul>
+
+    {% url 'sustentabilidad:index' as url %}
+    {% include 'home/index_back.html' with link=url %}
+
+{% endblock content_sustentabilidad %}
